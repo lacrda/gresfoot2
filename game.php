@@ -1,24 +1,18 @@
 <?php
 session_start();
-
 	if (!isset($_SESSION['usuario'])) {
 		header('Location: index.php?erro=1');
 	}
-
 	
 if($_SESSION['bar'] == ''){
 	$_SESSION['bar'] = 0;
 }
-
 if($_SESSION['com'] == ''){
 	$_SESSION['com'] = 0;
 }
-
 if($_SESSION['imp'] == ''){
 	$_SESSION['imp'] = 0;
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,8 +41,6 @@ if($_SESSION['imp'] == ''){
 							}
 						});
   		});
-
-
     </script>
 
 
@@ -341,7 +333,6 @@ if($_SESSION['imp'] == ''){
                           });
                       }
                   });
-
                   $(function () {
                       $('[data-toggle="popover"]').popoverClosable();
                   });
@@ -351,7 +342,5 @@ if($_SESSION['imp'] == ''){
       
 
     </html>
-
-
 
 
