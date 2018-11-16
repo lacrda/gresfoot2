@@ -42,6 +42,13 @@ if($_SESSION['imp'] == ''){
 								$('#escolas').html(data);
 							}
 						});
+  				$.ajax({
+							url: 'load_actions.php',
+							success: function(data) {
+								$('#action').html(data);
+							}
+						});
+  				
   		$("#test").click(function(){
   			var user = $_SESSION['usuario'];
   			alert(user);
@@ -237,41 +244,9 @@ if($_SESSION['imp'] == ''){
             
                 <div class=" col-md-12" align="center" style="margin-top: 3px;margin-bottom: 3px;">
                     <h4>Ações disponíveis para essa semana</h4>
-                    <!--button text must have less than 45caracters-->
-                    <div class="col-md-4">
-                   	<div class="panel panel-default" >
-					<div class="panel-heading">
-					<h6 class="panel-title">Opção 1</h6>
-					 </div>
-					<div class="panel-body" style="box-sizing: border-box;height: 70px">
-					Contratar Equipe Terceirizada
-					</div>
-                    <button   id="test" type="button" class="btn btn-default btn-block btn-action" style="margin-bottom: 0px;">Selecionar</button>
-					</div> 
-                	</div>
-                	<div class="col-md-4">
-                   	<div class="panel panel-default">
-					<div class="panel-heading">
-					<h6 class="panel-title">Opção 2</h6>
-					 </div>
-					<div class="panel-body" style="box-sizing: border-box;height: 70px">
-					Fazer Feijoada na Quadra
-					</div>
-                    <button type="button" class="btn btn-default btn-block btn-action" style="margin-bottom: 0px">Selecionar</button>
-					</div> 
-                	</div>
-                	<div class="col-md-4">
-                   	<div class="panel panel-default">
-					<div class="panel-heading">
-					<h6 class="panel-title">Opção 3</h6>
-					 </div>
-					<div class="panel-body" style="box-sizing: border-box;height: 70px">
-					Divulgar Samba
-					</div>
-                    <button type="button" class="btn btn-default btn-block btn-action" style="margin-bottom: 0px">Selecionar</button>
-					</div> 
-                	</div>
-                	
+                    <div id="action"></div>
+                    <!--from load_actions.php-->
+                    
                 </div>
           </div>
           <div class="col-md-3">
@@ -287,7 +262,9 @@ if($_SESSION['imp'] == ''){
 		    
 		   	</div>
 		    <div role="tabpanel" class="tab-pane fade in" id="profile">Últimas Ações</div>
-            <button type="submit" class="btn-action btn btn-default btn-advance btn-block" style="height: 60px;">Ir para Próxima Semana</button>
+		    <form action="load_actions.php" method="post">
+            <button type="submit" name="rodada" value="<?= ($_SESSION["round"]+1)?>" class="btn-action btn btn-default btn-advance btn-block" style="height: 60px;" >Ir para Próxima Semana</button>
+            </form>
           </div>
         </div>  
       </div>
