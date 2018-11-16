@@ -3,6 +3,10 @@ session_start();
 	if (!isset($_SESSION['usuario'])) {
 		header('Location: index.php?erro=1');
 	}
+
+	if (isset($_POST['rodada'])){
+		$_SESSION['round'] = $_POST['rodada'];
+	}
 	
 if($_SESSION['bar'] == ''){
 	$_SESSION['bar'] = 0;
@@ -14,7 +18,7 @@ if($_SESSION['imp'] == ''){
 	$_SESSION['imp'] = 0;
 }
 
-
+echo "rodada ".$_SESSION["round"];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -262,7 +266,7 @@ if($_SESSION['imp'] == ''){
 		    
 		   	</div>
 		    <div role="tabpanel" class="tab-pane fade in" id="profile">Últimas Ações</div>
-		    <form action="load_actions.php" method="post">
+		    <form action="game.php" method="post">
             <button type="submit" name="rodada" value="<?= ($_SESSION["round"]+1)?>" class="btn-action btn btn-default btn-advance btn-block" style="height: 60px;" >Ir para Próxima Semana</button>
             </form>
           </div>

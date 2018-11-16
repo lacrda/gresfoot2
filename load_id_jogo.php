@@ -22,7 +22,7 @@ session_start();
 
 		$_SESSION['id_jogo'] = $dados_usuario["id_jogo"];
 
-		header("Location: load_actions.php");
+		header("Location: load_game.php");
 	} 
 	
 	

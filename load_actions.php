@@ -37,7 +37,6 @@ echo                	"</div>";
 }
 
 
-
 // foreach ($todas_infos as $k=>$v) {
 // 	$acoes[$k]=$todas_infos[$k]["id_acao"];
 // };
