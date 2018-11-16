@@ -14,7 +14,6 @@ if($_SESSION['imp'] == ''){
 	$_SESSION['imp'] = 0;
 }
 
-echo($_SESSION['usuario']);
 
 ?>
 <!DOCTYPE html>
