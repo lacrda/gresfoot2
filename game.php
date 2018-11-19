@@ -31,7 +31,8 @@ echo "rodada ".$_SESSION["round"];
     <link rel="icon" type="image/png" sizes="96x96" href="img/logo/favicon-32x32.png">
 
     <!-- Bootstrap -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="estilo.css" rel="stylesheet">
@@ -51,14 +52,16 @@ echo "rodada ".$_SESSION["round"];
 							success: function(data) {
 								$('#action').html(data);
 							}
-						});
-  				
-  		$("#test").click(function(){
-  			var user = $_SESSION['usuario'];
-  			alert(user);
-  		});		
+						}); 				
+  						
   		});
+
+    	
+
+
+
     </script>
+    <script src="js/exercer_acoes.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -222,7 +225,7 @@ echo "rodada ".$_SESSION["round"];
                     <div class="prog-row" >
                     <h4>Ritmo no Barracão</h4>
                     <div class="progress">
-                    <div class=" progress-bar " style="width:<?= $_SESSION['bar'] ?>%; font-size: 12px;"><?= $_SESSION['bar'] ?></div>
+                    <div id="barracao" class=" progress-bar" style="width:<?= $_SESSION['bar'] ?>%; font-size: 12px;"><?= $_SESSION['bar'] ?></div>
                     </div>
                 	</div>
                     </div>
@@ -230,7 +233,7 @@ echo "rodada ".$_SESSION["round"];
                     <div class="prog-row" >
                     <h4>Comunidade</h4>
                      <div class="progress">
-                     <div class="progress-bar" style="width: <?= $_SESSION['com'] ?>%; font-size: 12px"><?= $_SESSION['com'] ?></div>
+                     <div id="com" class="progress-bar" style="width: <?= $_SESSION['com'] ?>%; font-size: 12px"><?= $_SESSION['com'] ?></div>
                     </div>
                     </div>
                 </div>
@@ -238,7 +241,7 @@ echo "rodada ".$_SESSION["round"];
                     <div class="prog-row" >
                     <h4>Desempenho nos Ensaios</h4>
                      <div class="progress">
-                      <div class=" progress-bar"  style="width: <?= $_SESSION['des'] ?>%; font-size: 12px"><?= $_SESSION['des'] ?></div>
+                      <div id="des" class=" progress-bar"  style="width: <?= $_SESSION['des'] ?>%; font-size: 12px"><?= $_SESSION['des'] ?></div>
                     </div>
                 </div>
                     </div>
@@ -267,7 +270,7 @@ echo "rodada ".$_SESSION["round"];
 		   	</div>
 		    <div role="tabpanel" class="tab-pane fade in" id="profile">Últimas Ações</div>
 		    <form action="game.php" method="post">
-            <button type="submit" name="rodada" value="<?= ($_SESSION["round"]+1)?>" class="btn-action btn btn-default btn-advance btn-block" style="height: 60px;" >Ir para Próxima Semana</button>
+            <button id='teste2' type="submit" name="rodada" value="<?= ($_SESSION["round"]+1)?>" class="btn-action btn btn-default btn-advance btn-block" style="height: 60px;" >Ir para Próxima Semana</button>
             </form>
           </div>
         </div>  
@@ -332,7 +335,10 @@ echo "rodada ".$_SESSION["round"];
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->    
         
-        <script type="text/javascript">$(function () {
+        <script type="text/javascript">
+
+
+        	$(function () {
                   $('[data-toggle="tooltip"]').tooltip()
                   $.fn.extend({
                       popoverClosable: function (options) {

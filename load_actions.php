@@ -30,7 +30,7 @@ echo						 "</div>";
 echo						"<div class='panel-body' style='box-sizing: border-box;height: 70px'>";
 echo						"Ação ".$todas_infos[$i]['id_acao'];
 echo						"</div>";
-echo	                   " <button type='button' class='btn btn-default btn-block btn-action' style='margin-bottom: 0px'>Selecionar</button>";
+echo	                   "<button type='button' class='btn btn-default btn-block btn-action teste3' data-com='".$todas_infos[$i]['effect_com']."' data-des='".$todas_infos[$i]['effect_des']."' data-bar='".$todas_infos[$i]['effect_bar']."' style='margin-bottom: 0px'>Selecionar</button>";
 echo						"</div> ";
 echo                	"</div>";
 
