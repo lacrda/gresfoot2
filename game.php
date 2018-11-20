@@ -7,15 +7,16 @@ session_start();
 	if (isset($_POST['rodada'])){
 		$_SESSION['round'] = $_POST['rodada'];
 	}
+
 	
-if($_SESSION['bar'] == ''){
-	$_SESSION['bar'] = 0;
+if($_SESSION['bar'] > 100){
+	$_SESSION['bar'] = 100;
 }
-if($_SESSION['com'] == ''){
-	$_SESSION['com'] = 0;
+if($_SESSION['com']  > 100){
+	$_SESSION['com'] = 100;
 }
-if($_SESSION['imp'] == ''){
-	$_SESSION['imp'] = 0;
+if($_SESSION['des']  > 100){
+	$_SESSION['des'] = 100;
 }
 
 echo "rodada ".$_SESSION["round"];
@@ -269,8 +270,12 @@ echo "rodada ".$_SESSION["round"];
 		    
 		   	</div>
 		    <div role="tabpanel" class="tab-pane fade in" id="profile">Últimas Ações</div>
-		    <form action="game.php" method="post">
-            <button id='teste2' type="submit" name="rodada" value="<?= ($_SESSION["round"]+1)?>" class="btn-action btn btn-default btn-advance btn-block" style="height: 60px;" >Ir para Próxima Semana</button>
+		    <form action="btwn_rounds.php" method="post" id="next-round">
+		    <input style="display: none" name='bar'></input>
+		 	<input style="display: none" name='com' value=0></input>
+		    <input style="display: none" name='des' value=0></input>
+		    <input style="display: none" name='cash' value=0></input>
+            <button id='teste2' type="submit" name="round" value="<?= ($_SESSION["round"]+1)?>" class="btn-action btn btn-default btn-advance btn-block" style="height: 60px;" >Ir para Próxima Semana</button>
             </form>
           </div>
         </div>  

@@ -31,6 +31,9 @@ window.onload = function(){
     	$('#des').html(des+eff_des);
     	$('#des').css('width', des+eff_des+'%');
     	};
+    	$("input[name='bar']").attr({'value':bar+eff_bar});
+    	$("input[name='com']").attr({'value':com+eff_com});
+    	$("input[name='des']").attr({'value':des+eff_des});
 
     });
   	};
