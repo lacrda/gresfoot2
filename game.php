@@ -19,7 +19,6 @@ if($_SESSION['des']  > 100){
 	$_SESSION['des'] = 100;
 }
 
-echo "rodada ".$_SESSION["round"];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -53,13 +52,10 @@ echo "rodada ".$_SESSION["round"];
 							success: function(data) {
 								$('#action').html(data);
 							}
-						}); 				
+						});
+					
   						
   		});
-
-    	
-
-
 
     </script>
     <script src="js/exercer_acoes.js"></script>
@@ -72,6 +68,7 @@ echo "rodada ".$_SESSION["round"];
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <div style="display: none" id="round">S<?=$_SESSION["round"]?></div>
   <body  id="fundo">
     <div class="container-fluid" >
       <nav class="navbar navbar-default">
@@ -182,7 +179,7 @@ echo "rodada ".$_SESSION["round"];
                   <th colspan="2">Áreas Impactadas</th>
                 </tr>
                 <tr>
-                  <td>S1</td>
+                  <td >S1</td>
                   <td>Feijoada </td>
                   <td> 15 x num random</td>
                   <td></td>
@@ -203,7 +200,7 @@ echo "rodada ".$_SESSION["round"];
                   <td><span class="glyphicon glyphicon-arrow-up">Comunidade</span></td>
                 </tr>
                 <tr>
-                  <td>S4</td>
+                  <td >S4</td>
                   <td>Decisão "z"</td>
                   <td> - R$ 5.000,00 </td>
                   <td><span class="glyphicon glyphicon-arrow-up">Comunidade</span></td>
@@ -270,8 +267,8 @@ echo "rodada ".$_SESSION["round"];
 		    
 		   	</div>
 		    <div role="tabpanel" class="tab-pane fade in" id="profile">Últimas Ações</div>
-		    <form action="btwn_rounds.php" method="post" id="next-round">
-		    <input style="display: none" name='bar'></input>
+		    <form  method="post" id="next-round">
+		    <input style="display: none" name='bar' value=0></input>
 		 	<input style="display: none" name='com' value=0></input>
 		    <input style="display: none" name='des' value=0></input>
 		    <input style="display: none" name='cash' value=0></input>
@@ -290,26 +287,26 @@ echo "rodada ".$_SESSION["round"];
                         <th colspan="4">Jan/19</th>
                         <th colspan="4">Fev/19</th>
                         <tr>
-                          <td>Semana 1</td>
-                          <td>Semana 2</td>
-                          <td>Semana 3</td>
-                          <td>Semana 4</td>
-                          <td>Semana 5</td>
-                          <td>Semana 6</td>
-                          <td>Semana 7</td>
-                          <td>Semana 8</td>
-                          <td>Semana 9</td>
-                          <td>Semana 10</td>
-                          <td>Semana 11</td>
-                          <td>Semana 12</td>
-                          <td>Semana 13</td>
-                          <td>Semana 14</td>
-                          <td>Semana 15</td>
-                          <td>Semana 16</td>
-                          <td>Semana 17</td>
-                          <td>Semana 18</td>
-                          <td>Semana 19</td>
-                          <td>Semana 20</td>
+                          <td id="S1">Semana 1</td>
+                          <td id="S2">Semana 2</td>
+                          <td id="S3">Semana 3</td>
+                          <td id="S4">Semana 4</td>
+                          <td id="S5">Semana 5</td>
+                          <td id="S6">Semana 6</td>
+                          <td id="S7">Semana 7</td>
+                          <td id="S8">Semana 8</td>
+                          <td id="S9">Semana 9</td>
+                          <td id="S10">Semana 10</td>
+                          <td id="S11">Semana 11</td>
+                          <td id="S12">Semana 12</td>
+                          <td id="S13">Semana 13</td>
+                          <td id="S14">Semana 14</td>
+                          <td id="S15">Semana 15</td>
+                          <td id="S16">Semana 16</td>
+                          <td id="S17">Semana 17</td>
+                          <td id="S18">Semana 18</td>
+                          <td id="S19">Semana 19</td>
+                          <td id="S20">Semana 20</td>
                         </tr>
                         <tr> 
                           <td style="font-weight: bold">Calendário</td>
@@ -342,6 +339,11 @@ echo "rodada ".$_SESSION["round"];
         
         <script type="text/javascript">
 
+        	var round = String($("#round").html());
+				console.log(round);
+				console.log('#' + round);
+				$('#' + round).css('background-color', 'green');
+				$('#' + round).css('color', 'white');		
 
         	$(function () {
                   $('[data-toggle="tooltip"]').tooltip()

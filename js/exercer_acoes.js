@@ -2,6 +2,7 @@ window.onload = function(){
 	var bar = parseInt($('#barracao').html());
 	var com = parseInt($('#com').html());
 	var des = parseInt($('#des').html());
+	console.log(bar);
     $('.teste3').click(function(){
     	$('#barracao').html(bar);
     	var eff_bar = parseInt($(this).attr('data-bar'));
@@ -34,6 +35,7 @@ window.onload = function(){
     	$("input[name='bar']").attr({'value':bar+eff_bar});
     	$("input[name='com']").attr({'value':com+eff_com});
     	$("input[name='des']").attr({'value':des+eff_des});
+    	$("#next-round").attr({'action' : 'btwn_rounds.php'});
 
     });
   	};
