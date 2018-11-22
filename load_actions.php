@@ -18,12 +18,11 @@ if ($rodada == 1){
 
 	if($resultado_query2){
 
-		$enredos[]="";
-		while ($linha2 = mysqli_fetch_array($resultado_query, MYSQLI_ASSOC)) {
+		while ($linha2 = mysqli_fetch_array($resultado_query2, MYSQLI_ASSOC)) {
 			$todas_infos[] = $linha2;
 		};
 
-		if ($linha2 == '') {
+		if (!isset($todas_infos)) {
 			echo '</br>Nenhum enredo';
 			} else {
 
@@ -34,10 +33,10 @@ if ($rodada == 1){
 			echo						"<div class='panel-heading'>";
 			echo						"<h6 class='panel-title'>Opção 1</h6>";
 			echo						 "</div>";
-			echo						"<div class='panel-body' style='box-sizing: border-box;height: 70px'>";
-			echo						"Ação ".$todas_infos[$i]['id_enredo'];
+			echo						"<div class='panel-body' style='box-sizing: border-box;height: 140px'>";
+			echo						"Enredo ".$todas_infos[$i]['id_enredo'];
 			echo						"</div>";
-			echo	                   "<button type='button' class='btn btn-default btn-block btn-action teste3' style='margin-bottom: 0px'>Selecionar</button>";
+			echo	                   "<button type='button' class='btn btn-default btn-block btn-action enredos' data-enredo='".$todas_infos[$i]['id_enredo']."'' style='margin-bottom: 0px'>Selecionar</button>";
 			echo						"</div> ";
 			echo                	"</div>";
 

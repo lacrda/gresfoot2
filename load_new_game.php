@@ -4,7 +4,6 @@ session_start();
 
 require_once('db.class.php');
 
-var_dump($_SESSION);
 
 $objDb = new db();
 $link = $objDb->conecta_mysql();
@@ -14,9 +13,10 @@ $id_escola = $_SESSION['id_escola'];
 $bar = $_SESSION['bar'];
 $com = $_SESSION['com'];
 $des = $_SESSION['des'];
+$id_enredo = $_POST['enredo'];
 
 
-$sql = " INSERT INTO games (user_id, bar, com, imp, cash, id_enredo, id_escola, round, des) VALUES ($id_usuario, $bar,$com,50,100,NULL,$id_escola,1,$des)";
+$sql = " INSERT INTO games (user_id, bar, com, imp, cash, id_enredo, id_escola, round, des) VALUES ($id_usuario, $bar,$com,50,100,$id_enredo,$id_escola,2,$des)";
 
 	if(mysqli_query($link, $sql)){
 		require_once('db.class.php');
