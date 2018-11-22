@@ -11,13 +11,13 @@ session_start();
 	
 if($_SESSION['bar'] > 100){
 	$_SESSION['bar'] = 100;
-}
+};
 if($_SESSION['com']  > 100){
 	$_SESSION['com'] = 100;
-}
+};
 if($_SESSION['des']  > 100){
 	$_SESSION['des'] = 100;
-}
+};
 
 ?>
 <!DOCTYPE html>
