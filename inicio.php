@@ -166,7 +166,7 @@ echo($_SESSION['round']);
                   <thead></thead>
                   <tr>
                     <th><h4 style="font-weight: bold">$</h4></th>
-                    <th><h4><?= $_SESSION['cash'] ?>.000,00</h4></th>
+                    <th><h4>100.000,00</h4></th>
                   </tr>
                 </table>
           </div>

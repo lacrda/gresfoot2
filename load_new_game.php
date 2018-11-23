@@ -18,7 +18,8 @@ $id_enredo = $_POST['enredo'];
 $ids_escolas = range(1,13);
 $enredos[]="";
 foreach ($ids_escolas as $id) {
-
+	
+	
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
@@ -26,12 +27,16 @@ foreach ($ids_escolas as $id) {
 
 	if($resultado_query = mysqli_query($link, $sql3)){
 		$enredos[$id] = mysqli_fetch_array($resultado_query, MYSQLI_ASSOC);
+
 		
 		$_SESSION['stat'.$id] = $enredos[$id]['id_enredo'];
+
 
 	};
 
 };
+
+$_SESSION['stat'.$id_escola] = $id_enredo;
 
 $stat1 = $_SESSION['stat1'];
 $stat2 = $_SESSION['stat2'];
@@ -46,6 +51,7 @@ $stat10 = $_SESSION['stat10'];
 $stat11 = $_SESSION['stat11'];
 $stat12 = $_SESSION['stat12'];
 $stat13 = $_SESSION['stat13'];
+
 
 
 $sql = "INSERT INTO games (user_id, bar, com, imp, cash, id_enredo, id_escola, round, des, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9, stat10, stat11, stat12, stat13) VALUES ($id_usuario, $bar,$com,50,100,$id_enredo,$id_escola,2,$des, $stat1, $stat2, $stat3, $stat4, $stat5, $stat6, $stat7, $stat8, $stat9, $stat10, $stat11, $stat12, $stat13)";

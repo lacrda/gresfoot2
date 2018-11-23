@@ -1,15 +1,13 @@
 <?php
 session_start();
 
-	require_once('db.class.php');
-	$objDb = new db();
-	$link = $objDb->conecta_mysql();
-
 $ids_escolas = range(1,13);
 $enredos[]="";
 foreach ($ids_escolas as $id) {
+	require_once('db.class.php');
 
-
+	$objDb = new db();
+	$link = $objDb->conecta_mysql();
 
 	$sql3 = "SELECT * FROM enredos where id_escola = $id order by rand();";
 

@@ -21,7 +21,11 @@
 // };
 
 
+$stat1 = array('enredo' => "O Som da Cor" , 'chao' => 5, 'samba' => 4, 'bar' => 3 );
 
+$_SESSION['stat1'] = $stat1;
+
+echo $_SESSION['stat1']['enredo'];
 
 
 
