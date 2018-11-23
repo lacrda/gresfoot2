@@ -42,9 +42,15 @@ if($_SESSION['des']  > 100){
     <script type="text/javascript">
     	$(document).ready( function(){
   				$.ajax({
-							url: 'test.php',
+							url: 'ajax_enredos.php',
 							success: function(data) {
 								$('#escolas').html(data);
+							}
+						});
+  				$.ajax({
+							url: 'ajax_results_ensaios.php',
+							success: function(data) {
+								$('#results_ensaios').html(data);
 							}
 						});
   				$.ajax({
@@ -168,56 +174,7 @@ if($_SESSION['des']  > 100){
                 </table>
           </div>
           <div class="col-md-6">
-            <!-- <div class="row actions hidden-xs" style="display: none">
-              <div>
-                <table class="table table-bordered table-striped table-color table-condensed" style="font-size: 12px" >
-                <thead></thead>
-                <tr>
-                  <th style="width: 5px">.</th>
-                  <th>Ações Recentes</th>
-                  <th>$</th>
-                  <th colspan="2">Áreas Impactadas</th>
-                </tr>
-                <tr>
-                  <td >S1</td>
-                  <td>Feijoada </td>
-                  <td> 15 x num random</td>
-                  <td></td>
-                  <td><span class="glyphicon glyphicon-arrow-down">Comunidade</span></td>
-                </tr>
-                <tr>
-                  <td>S2</td>
-                  <td>Decisão "x"</td>
-                  <td> - R$ 5.000,00 </td>
-                  <td><span class="glyphicon glyphicon-arrow-up">Mídia</span></td>
-                  <td><span class="glyphicon glyphicon-arrow-down">Comunidade</span></td>
-                </tr>
-                <tr>
-                  <td>S3</td>
-                  <td>Decisão "y"</td>
-                  <td> - R$ 5.000,00 </td>
-                  <td><span class="glyphicon glyphicon-arrow-up">Barracão</span></td>
-                  <td><span class="glyphicon glyphicon-arrow-up">Comunidade</span></td>
-                </tr>
-                <tr>
-                  <td >S4</td>
-                  <td>Decisão "z"</td>
-                  <td> - R$ 5.000,00 </td>
-                  <td><span class="glyphicon glyphicon-arrow-up">Comunidade</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>S5</td>
-                  <td>Decisão "a"</td>
-                  <td> - R$ 5.000,00 </td>
-                  <td><span class="glyphicon glyphicon-arrow-up">Mídia</span></td>
-                  <td><span class="glyphicon glyphicon-arrow-down">Barracão</span></td>
-                </tr>
-                </table>
-              </div>   
-            </div> -->
-            
-      	
+                	
                 <div align="center">
                 	<div class="col-md-12">
                     <div class="prog-row" >
@@ -257,8 +214,8 @@ if($_SESSION['des']  > 100){
           <div class="col-md-3">
         	<!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
-			    <li class="active" ><a href="#escolas" data-target="#escolas" data-toggle="tab">Escolas</a></li>
-			    <li > <a href="#profile" data-target="#profile" data-toggle="tab" > Últimas Ações </a></li>
+			    <li class="active" ><a href="#escolas" data-target="#escolas" data-toggle="tab">Enredos</a></li>
+			    <li > <a href="#results_ensaios" data-target="#results_ensaios" data-toggle="tab" >Performance </a></li>
 		  </ul>
 
 		  <!-- Tab panes -->
@@ -266,7 +223,9 @@ if($_SESSION['des']  > 100){
 		    <div class="tab-pane fade in active" role="tabpanel" id="escolas">
 		    
 		   	</div>
-		    <div role="tabpanel" class="tab-pane fade in" id="profile">Últimas Ações</div>
+		    <div role="tabpanel" class="tab-pane fade in" id="results_ensaios">
+
+		    </div>
 		    <form  method="post" id="next-round">
 		    <input style="display: none" name='bar' value=0></input>
 		 	<input style="display: none" name='com' value=0></input>
