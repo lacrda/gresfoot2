@@ -4,6 +4,10 @@ session_start();
 
 require_once('db.class.php');
 
+function isJSON($string){
+   return is_string($string) && is_array(json_decode($string, true)) ? true : false;
+}
+
 
 $objDb = new db();
 $link = $objDb->conecta_mysql();
@@ -29,15 +33,18 @@ foreach ($ids_escolas as $id) {
 		$enredos[$id] = mysqli_fetch_array($resultado_query, MYSQLI_ASSOC);
 
 		
-		$_SESSION['stat'.$id] = $enredos[$id]['id_enredo'];
+		$_SESSION['stat'.$id] = array('enredo' => $enredos[$id]['id_enredo'], 'chao' => rand(1,5), 'samba' => rand(1,5), 'bar' => rand(1,5));
+		$_SESSION['stat'.$id] = json_encode($_SESSION['stat'.$id]);
 
 
 	};
 
 };
 
-$_SESSION['stat'.$id_escola] = $id_enredo;
 
+$stat_escola_user = array('enredo' => $id_enredo , 'chao' => 0, 'samba' => 0, 'bar' => 0);
+
+$_SESSION['stat'.$id_escola] = json_encode($stat_escola_user);
 $stat1 = $_SESSION['stat1'];
 $stat2 = $_SESSION['stat2'];
 $stat3 = $_SESSION['stat3'];
@@ -54,7 +61,7 @@ $stat13 = $_SESSION['stat13'];
 
 
 
-$sql = "INSERT INTO games (user_id, bar, com, imp, cash, id_enredo, id_escola, round, des, stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9, stat10, stat11, stat12, stat13) VALUES ($id_usuario, $bar,$com,50,100,$id_enredo,$id_escola,2,$des, $stat1, $stat2, $stat3, $stat4, $stat5, $stat6, $stat7, $stat8, $stat9, $stat10, $stat11, $stat12, $stat13)";
+$sql = "INSERT INTO games (user_id, bar, com, imp, cash, id_enredo, id_escola, round, des, stat1,stat2 ,stat3, stat4 ,stat5, stat6, stat7, stat8, stat9, stat10, stat11, stat12, stat13) VALUES ($id_usuario, $bar,$com,50,100,$id_enredo,$id_escola,2,$des,'$stat1','$stat2' ,'$stat3', '$stat4' ,'$stat5', '$stat6', '$stat7', '$stat8', '$stat9', '$stat10', '$stat11', '$stat12', '$stat13')";
 
 	if(mysqli_query($link, $sql)){
 		require_once('db.class.php');
@@ -68,11 +75,20 @@ $sql = "INSERT INTO games (user_id, bar, com, imp, cash, id_enredo, id_escola, r
 
 		$lista_infos = mysqli_fetch_array($resultado_query, MYSQLI_ASSOC);
 
+		// var_dump($lista_infos);
+
 		foreach ($lista_infos as $k=>$v) {
+		if (isJSON($v)){
+		$_SESSION[$k]=json_decode($v,true);
+		echo 'decoded</br>';
+		continue;
+		}
 		$_SESSION[$k]=$v;
 		};
 		
+
 		var_dump($_SESSION);
+
 
 	header("Location: game.php");
 		

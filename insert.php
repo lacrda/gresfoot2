@@ -1,31 +1,26 @@
 <?php
 
 
-// require_once('db.class.php');
+require_once('db.class.php');
+
+		$objDb = new db();
+		$link = $objDb->conecta_mysql();
 
 
-// $anos = range(1980,2018);
+		$sql = "SELECT * from products where id = 2";
 
-// $id_escolas = range(1,13);
+		$resultado = mysqli_query($link, $sql);
 
-// foreach ($id_escolas as $id) {
-// 	foreach ($anos as $ano) {
-// 		$objDb = new db();
-// 		$link = $objDb->conecta_mysql();
+		$linha = mysqli_fetch_array($resultado,MYSQLI_ASSOC);
 
-// 		$sql = "INSERT into enredos (id_escola, ano) values ($id, $ano);";
-
-// 		mysqli_query($link, $sql);
 		
-// 	};
-// };
+		$status = json_decode($linha['attr'],true);
+		echo $status['enredo'];
 
 
-$stat1 = array('enredo' => "O Som da Cor" , 'chao' => 5, 'samba' => 4, 'bar' => 3 );
 
-$_SESSION['stat1'] = $stat1;
-
-echo $_SESSION['stat1']['enredo'];
+// $stat = array("enredo"=>"O Som da Cor","chao"=>5,"samba"=>4,"bar"=>3);
+// var $stat;
 
 
 

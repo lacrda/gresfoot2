@@ -29,7 +29,7 @@
 		echo	"<tr>";
         echo    "<td>".$k['apelido']."</td>";
     
-        echo    "<td>".$_SESSION['stat'.$k["id"]]."</td>";
+        echo    "<td>".$_SESSION['stat'.$k['id']]['enredo']."</td>";
         echo 	"</tr>";
 
 		};
