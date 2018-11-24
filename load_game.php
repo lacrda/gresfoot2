@@ -4,13 +4,18 @@ session_start();
 
 	require_once('db.class.php');
 
+function isJSON($string){
+   return is_string($string) && is_array(json_decode($string, true)) ? true : false;
+}
+
+
 
 if(isset($_SESSION['id_jogo'])){
 
 
 	$id_jogo = $_SESSION['id_jogo'];
 
-	$sql = " SELECT * FROM games join escolas on games.id_escola = escolas.id WHERE games.id_jogo = $id_jogo";
+	$sql = "SELECT * FROM games join escolas on games.id_escola = escolas.id WHERE games.id_jogo = $id_jogo";
 
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
@@ -19,18 +24,21 @@ if(isset($_SESSION['id_jogo'])){
 
 	if($resultado_query){
 
-		while ($linha = $lista_infos = mysqli_fetch_array($resultado_query, MYSQLI_ASSOC)) {
-		$todas_infos[] = $linha;
-		};
+		$lista_infos = mysqli_fetch_array($resultado_query, MYSQLI_ASSOC);
 
-		foreach ($todas_infos[0] as $k=>$v) {
+		// var_dump($lista_infos);
+
+		foreach ($lista_infos as $k=>$v) {
+		if (isJSON($v)){
+		$_SESSION[$k]=json_decode($v,true);
+		echo 'decoded</br>';
+		continue;
+		}
 		$_SESSION[$k]=$v;
 		};
 
-
 	header("Location: game.php");
 
-		// var_dump($_SESSION);
 
 	} else {
 		echo 'Erro na consulta ao bd';

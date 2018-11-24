@@ -8,7 +8,16 @@ session_start();
 		$_SESSION['round'] = $_POST['rodada'];
 	}
 
-	
+if ($_SESSION['round']==1) {
+    header("Location: inicio.php");
+  }  
+
+if ($_SESSION['round']==7 || $_SESSION['round']==10 || $_SESSION['round']==13 || $_SESSION['round']==16) {
+
+  header('Location: add_to_stat.php');
+}
+
+
 if($_SESSION['bar'] > 100){
 	$_SESSION['bar'] = 100;
 };
@@ -330,14 +339,14 @@ if($_SESSION['des']  > 100){
                           <td  class="activity">Escolha Samba</td>
                           <td></td>
                           <td></td>
-                          <td></td>
-                          <td></td>
                           <td class="activity">1º Ensaio</td>
                           <td></td>
                           <td></td>
                           <td class="activity">2º Ensaio</td>
                           <td></td>
+                          <td></td>
                           <td class="activity">3º Ensaio</td>
+                          <td></td>
                           <td></td>
                           <td class="activity">Ensaio Técnico</td>
                           <td></td>
@@ -353,7 +362,7 @@ if($_SESSION['des']  > 100){
         
         <script type="text/javascript">
 
-        	var round = String($("#round").html());
+        var round = String($("#round").html());
 				console.log(round);
 				console.log('#' + round);
 				$('#' + round).css('background-color', 'green');

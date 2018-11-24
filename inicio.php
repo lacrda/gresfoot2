@@ -16,11 +16,10 @@ if($_SESSION['des']  > 100){
 	$_SESSION['des'] = 100;
 };
 
-// if ($_SESSION['round'] != 1){
-//   header("Location: game.php");
-// }
+if ($_SESSION['round'] != 1){
+  header("Location: game.php");
+}
 
-echo($_SESSION['round']);
 
 ?>
 <!DOCTYPE html>

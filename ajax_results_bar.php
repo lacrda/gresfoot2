@@ -1,10 +1,7 @@
 <?php
 	session_start();
 
-	if ($_SESSION['round'] > 9) {
-
-
-
+	if ($_SESSION['round'] > 7) {
 
 	require_once('db.class.php');
 

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	if ($_SESSION['round'] > 9) {
+	if ($_SESSION['round'] > 7) {
 
 	require_once('db.class.php');
 
@@ -28,9 +28,6 @@
 			case 1:
 				$samba = 'Fraco';
 				break;
-			case 4:
-				$samba = "Empolgante";
-				break;	
 			case 5:
 				$samba = "Excelente";
 				break;				

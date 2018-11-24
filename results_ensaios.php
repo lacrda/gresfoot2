@@ -2,25 +2,24 @@
 session_start();
 
 switch ($_SESSION['round']) {
-	case 10:
+	case 7:
 		$ensaio = 'Primeiro Ensaio';
 		$text = 'As Escolas de Samba do RJ fizeram seu primeiro ensaio! Confira abaixo a avaliação dos ensaios segundo os especialistas.';
 		break;
-	case 13:
+	case 10:
 		$ensaio = 'Segundo Ensaio';
 		$text = 'Todas as agremiações já ensaiaram novamente. Confira abaixo como anda seu desempenho segundo a mídia.';
 		break;
-	case 15:
+	case 13:
 		$ensaio = 'Terceiro Ensaio';
 		$text = 'Confira as notas dos jornalistas para o desempenho das Escolas no ensaio da última semana.';
 		break;
-	case 17:
+	case 16:
 		$ensaio = 'Ensaio Técnico';
 		$text = 'Finalizados os ensaios técnicos no Sambódromo, já conseguimos ter uma ideia de como será o desfile de cada escola! Confira a previsão dos especialistas para cada escola.';
 		break;
 	default:
-		echo $_SESSION['round'];
-		// header("Location: game.php");
+		header("Location: game.php");
 		break;
 }
 
@@ -49,20 +48,56 @@ switch ($_SESSION['round']) {
 	<div class="col-md-12" style="height: 40px"></div>
 	<div class="col-md-3"></div>
 	<div class="col-md-6">
-		<center>
 			<div class="panel panel-default">
 				<div class="panel-heading"><?= $ensaio ?></div>
 				<div class="panel-body">
 					<p><?= $text ?></p>
-				</div>
-				<table class="table table-condensed table-striped  table-bordered" style="text-align: center">
-                <thead>
-                	<td>Escola</td>
-                	<td>Chão</td>
-                	<td>Samba</td>
-                </thead>
+		<div class="col-md-6">
+				<table class="table table-condensed table-striped table-bordered" style="font-size: 12px; text-align: center">
+                <thead></thead>
+               <tr>
+        	<th style="text-align: center">Escolas</th>
+        </tr>
+        	<tr>
+        	<td>Vila Isabel</td>
+        	</tr>
+        	<tr>
+        	<td>Império Serrano</td>
+        	</tr><tr>
+        	<td>Viradouro</td>
+        	</tr><tr>
+        	<td>Grande Rio</td>
+        	</tr><tr>
+        	<td>Salgueiro</td>
+        	</tr><tr>
+        	<td>Beija-Flor</td>
+        	</tr><tr>
+        	<td>Imperatriz</td>
+        	</tr><tr>
+        	<td>Unidos da Tijuca</td>
+        	</tr><tr>
+        	<td>Portela</td>
+        	</tr><tr>
+        	<td>União da Ilha</td>
+        	</tr><tr>
+        	<td>Paraíso do Tuiuti</td>
+        	</tr><tr>
+        	<td>Mangueira</td>
+       		</tr><tr>
+        	<td>Mocidade</td>
+        	</tr>
 
-              <?php
+        	</table>
+        </div>
+        <div class="col-md-6">
+        	<table  class="table table-condensed table-striped col-md-6 table-bordered" style="font-size: 12px;text-align: center">
+        		<thead></thead>
+        	<tr>
+        	<th style="text-align: center">Chao</th>
+        	<th style="text-align: center">Samba</th>
+        	</tr>
+        	
+            <?php
                require_once('db.class.php');
 
 	            $objDb = new db();
@@ -76,10 +111,51 @@ switch ($_SESSION['round']) {
 					foreach ($result as $key => $value) {
 						if (substr($key, 0, 4 ) == "stat") {
 							$k = json_decode($value, true);
+							$num_stat = substr($key,4,2);
+							$statz = 'stat'.$num_stat;
+							if ($k['chao']>$_SESSION[$statz]["chao"]) {
+								$iconc = '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true" style="color:green"></span>';
+							} elseif ($k['chao']<$_SESSION[$statz]["chao"]) {
+								$iconc = '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"  style="color:red"></span>';
+							} else {
+								$iconc = "";
+							}
+							switch ($k['chao']) {
+						case 1:
+							$chao = 'Fraco';
+							$stylec = 'color: red';
+							break;
+						
+						case 5:
+							$chao = "Excelente";
+							$stylec = 'color: green';
+							break;			
+						default:
+							$chao = "OK";
+							$stylec = '';
+							break;
+						};
+						
+						switch ($k['samba']) {
+						case 1:
+							$samba = 'Fraco';
+							$styles = 'color: red';
+							break;
+						
+						case 5:
+							$samba = "Excelente";
+							$styles = 'color: green';
+							break;				
+						default:
+							$samba = "OK";
+							$styles = '';
+							break;
+						}
+
 						echo "<tr>";
-						echo "<td>Escola</td>";
-						echo "<td>".$k['chao']."</td>";
-						echo "<td>".$k['samba']."</td>";
+							
+						echo "<td style='$stylec'>".$chao." ".$iconc."</td>";
+						echo "<td style='$styles'>".$samba."</td>";
 						echo "</tr>";
 						};
 					};
@@ -87,13 +163,15 @@ switch ($_SESSION['round']) {
              ?>
 
              </table>
-         	</div>
-			
-		</center>
-	</div>
+              <form  method="post" id="next-round" action="btwn_rounds.php">
+		      <button id='teste2' type="submit" name="round" value="<?= ($_SESSION['round']+1)?>" class="btn-action btn btn-default btn-advance btn-block" style="height: 60px;" >Ir para Próxima Semana</button>
+            </form>
+        
+		</div>
+		</div>
 	<div class="col-md-3"></div>
 	
-</div></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</div>
 
 
 	</div>

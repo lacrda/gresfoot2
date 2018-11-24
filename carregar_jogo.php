@@ -21,8 +21,13 @@
 			$todos_jogos[]= $jogo;
 			};
 
+		if (!isset($todos_jogos)) {
+			echo "<br>Você não possui jogos salvos.";
+			die();
+		}
+
 		foreach ($todos_jogos as $jogos_salvos) {
-			
+					
 			echo '</br></br>';
 			echo "<form action='load_id_jogo.php' method='POST'>";
 			echo "<div class='row prog-row'>";
@@ -38,8 +43,9 @@
 			echo "<button style='margin-left:10px' class='btn-xs btn btn-danger' type='submit' name='deletar' value='".$jogos_salvos['id_jogo']."'>Deletar Jogo</button>";
 			echo "</form>";
 		};
+		};
 
-};
+
 
 
 

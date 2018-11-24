@@ -7,9 +7,6 @@ require_once('db.class.php');
 		$_SESSION[$key] = $value;
 	}
 
-var_dump($_SESSION);
-
-
 
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
@@ -21,6 +18,7 @@ var_dump($_SESSION);
 
 	if(mysqli_query($link, $sql)){
 		header("Location: game.php");
+
 	} else {
 		echo 'Erro ao conectar com banco de dados';
 	};
