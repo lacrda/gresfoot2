@@ -1,6 +1,8 @@
 <?php
 	session_start();
 
+	if ($_SESSION['round'] > 9) {
+
 	require_once('db.class.php');
 
 	$objDb = new db();
@@ -19,19 +21,36 @@
 
 		echo "<table style='font-size: 9px' class='table-bordered table table-layout table-striped table-color table-condensed text-center'>";
 		echo "<thead></thead>";
-        echo "<th>Enredo</th>";
+        echo "<th>Samba</th>";
 
-		foreach ($todas_escolas as $k) {
-		// echo $k["id"]." - ".$k['name']."</br>";
-		
+	    foreach ($todas_escolas as $k) {
+		switch ($_SESSION['stat'.$k['id']]['samba']) {
+			case 1:
+				$samba = 'Fraco';
+				break;
+			case 4:
+				$samba = "Empolgante";
+				break;	
+			case 5:
+				$samba = "Excelente";
+				break;				
+			default:
+				$samba = "OK";
+				break;
+		}
+
 		echo	"<tr>";    
-        echo    "<td>".$_SESSION['stat'.$k['id']]['enredo']."</td>";
+        echo    "<td>".$samba."</td>";
         echo 	"</tr>";
 
 		};
          
          echo "</table></div>";
 }
+
+	} else{
+		echo "<h6>Escolas ainda não iniciaram os ensaios</h6>";
+	}
 
 
 

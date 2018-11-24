@@ -1,6 +1,11 @@
 <?php
 	session_start();
 
+	if ($_SESSION['round'] > 9) {
+
+
+
+
 	require_once('db.class.php');
 
 	$objDb = new db();
@@ -19,13 +24,23 @@
 
 		echo "<table style='font-size: 9px' class='table-bordered table table-layout table-striped table-color table-condensed text-center'>";
 		echo "<thead></thead>";
-        echo "<th>Enredo</th>";
+        echo "<th>Barracão</th>";
 
-		foreach ($todas_escolas as $k) {
-		// echo $k["id"]." - ".$k['name']."</br>";
-		
+	    foreach ($todas_escolas as $k) {
+		switch ($_SESSION['stat'.$k['id']]['bar']) {
+			case 1:
+				$bar = 'Atrasado';
+				break;
+			case 5:
+				$bar = "Adiantado";
+				break;			
+			default:
+				$bar = "OK";
+				break;
+		}
+
 		echo	"<tr>";    
-        echo    "<td>".$_SESSION['stat'.$k['id']]['enredo']."</td>";
+        echo    "<td>".$bar."</td>";
         echo 	"</tr>";
 
 		};
@@ -34,6 +49,9 @@
 }
 
 
+} else{
+		echo "<h6>Escolas ainda não iniciaram os ensaios</h6>";
+	}
 
 
 ?>

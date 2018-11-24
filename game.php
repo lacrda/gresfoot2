@@ -48,9 +48,21 @@ if($_SESSION['des']  > 100){
 							}
 						});
   				$.ajax({
-							url: 'ajax_results_ensaios.php',
+							url: 'ajax_results_bar.php',
 							success: function(data) {
-								$('#results_ensaios').html(data);
+								$('#results_bar').html(data);
+							}
+						});
+  				$.ajax({
+							url: 'ajax_results_chao.php',
+							success: function(data) {
+								$('#results_chao').html(data);
+							}
+						});
+  				$.ajax({
+							url: 'ajax_results_des.php',
+							success: function(data) {
+								$('#results_des').html(data);
 							}
 						});
   				$.ajax({
@@ -214,16 +226,59 @@ if($_SESSION['des']  > 100){
           <div class="col-md-3">
         	<!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
-			    <li class="active" ><a href="#escolas" data-target="#escolas" data-toggle="tab">Enredos</a></li>
-			    <li > <a href="#results_ensaios" data-target="#results_ensaios" data-toggle="tab" >Performance </a></li>
+			    <li class="active" style="font-size: 11px;" ><a href="#escolas" data-target="#escolas" data-toggle="tab">Enredos</a></li>
+			    <li style="font-size: 11px;"><a href="#results_bar" data-target="#results_bar" data-toggle="tab" >Barracões</a></li>
+			    <li style="font-size: 11px;"><a href="#results_chao" data-target="#results_chao" data-toggle="tab" >Chão</a></li>
+			    <li style="font-size: 11px;"><a href="#results_des" data-target="#results_des" data-toggle="tab" >Samba</a></li>
 		  </ul>
 
 		  <!-- Tab panes -->
 		  	<div class="tab-content">
-		    <div class="tab-pane fade in active" role="tabpanel" id="escolas">
+		  	<div class="col-md-6">
+		  	<table style='font-size: 9px' class='table-bordered table table-layout table-striped table-color table-condensed text-center'>
+			<thead></thead>
+        	<th>Escolas</th>
+        	<tr>
+        	<td>Vila Isabel</td>
+        	</tr>
+        	<tr>
+        	<td>Império Serrano</td>
+        	</tr><tr>
+        	<td>Viradouro</td>
+        	</tr><tr>
+        	<td>Grande Rio</td>
+        	</tr><tr>
+        	<td>Salgueiro</td>
+        	</tr><tr>
+        	<td>Beija-Flor</td>
+        	</tr><tr>
+        	<td>Imperatriz</td>
+        	</tr><tr>
+        	<td>Unidos da Tijuca</td>
+        	</tr><tr>
+        	<td>Portela</td>
+        	</tr><tr>
+        	<td>União da Ilha</td>
+        	</tr><tr>
+        	<td>Paraíso do Tuiuti</td>
+        	</tr><tr>
+        	<td>Mangueira</td>
+       		</tr><tr>
+        	<td>Mocidade</td>
+        	</tr>
+
+        	</table>
+        	</div>
+		    <div class="tab-pane fade in active col-md-6" role="tabpanel" id="escolas" >
 		    
 		   	</div>
-		    <div role="tabpanel" class="tab-pane fade in" id="results_ensaios">
+		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_bar">
+
+		    </div>
+		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_chao">
+
+		    </div>
+		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_des">
 
 		    </div>
 		    <form  method="post" id="next-round">
@@ -279,7 +334,7 @@ if($_SESSION['des']  > 100){
                           <td></td>
                           <td class="activity">1º Ensaio</td>
                           <td></td>
-                          <td class="activity" style="font-size: 10px">Barracões</td>
+                          <td></td>
                           <td class="activity">2º Ensaio</td>
                           <td></td>
                           <td class="activity">3º Ensaio</td>
