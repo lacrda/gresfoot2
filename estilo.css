@@ -188,7 +188,8 @@ html, body{
 
 .fensaio{
  background-image: url('img/sambodromo_ensaio.jpg');
- opacity: 0.99;
+ opacity: 0.87;
  background-size: cover;
  background-repeat: no-repeat;
+
 }

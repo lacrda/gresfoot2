@@ -17,6 +17,9 @@ if ($_SESSION['round']==7 || $_SESSION['round']==10 || $_SESSION['round']==13 ||
   header('Location: add_to_stat.php');
 }
 
+if($_SESSION['round']==19){
+  header("Location: results_notas.php");
+}
 
 if($_SESSION['bar'] > 100){
 	$_SESSION['bar'] = 100;
