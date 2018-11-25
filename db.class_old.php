@@ -2,17 +2,6 @@
 
 	class db{
 
-		
-		$url = parse_url(getenv("'mysql://b0fc924a809363:8cf3ef12@us-cdbr-iron-east-01.cleardb.net/heroku_e3047586806ab25?reconnect=true"));
-
-		$server = $url["host"];
-		$username = $url["user"];
-		$password = $url["pass"];
-		$db = substr($url["path"], 1);
-
-		$conn = new mysqli($server, $username, $password, $db);
-		?>
-
 		//host
 		private $host = 'localhost';
 
