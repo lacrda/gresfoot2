@@ -283,7 +283,7 @@ ALTER TABLE `users`
 -- Limitadores para a tabela `enredos`
 --
 ALTER TABLE `enredos`
-  ADD CONSTRAINT `enredos_ibfk_1` FOREIGN KEY (`id_escola`) REFERENCES `escolas` (`id`);
+  ADD CONSTRAINT `enredos_ibfk_1` FOREIGN KEY (`id_escola`) REFERENCES `escolas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `games`
