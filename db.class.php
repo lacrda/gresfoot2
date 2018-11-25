@@ -2,7 +2,7 @@
 
 	class db{
 
-		
+
 		$url = parse_url(getenv("'mysql://b0fc924a809363:8cf3ef12@us-cdbr-iron-east-01.cleardb.net/heroku_e3047586806ab25?reconnect=true"));
 
 		$server = $url["host"];
@@ -10,36 +10,38 @@
 		$password = $url["pass"];
 		$db = substr($url["path"], 1);
 
+		public function conecta_mysql(){
+
 		$conn = new mysqli($server, $username, $password, $db);
-		?>
-
-		//host
-		private $host = 'localhost';
 
 
-		//usuario
-		private $usuario = 'root';
-
-		//senha
-		private $senha = '';
+		
+// //host
+// 		private $host = 'localhost';
 
 
-		//bd para executar
-		private $database = 'gresfoot';
+// 		//usuario
+// 		private $usuario = 'root';
 
-		public function Conecta_mysql(){
-
-
-
-			$con = mysqli_connect($this->host, $this->usuario, $this->senha, $this->database);
-			//ajustar  o charset de comunicação entre app e bd
-			mysqli_set_charset($con,'utf8');
+// // 		//senha
+// // 		private $senha = '';
 
 
-			//verificar conexão
-			if(mysqli_connect_errno()){
-				echo 'erro ao conectar com bd mysql'.mysqli_connect_error();
-			}
+// // 		//bd para executar
+// // 		private $database = 'gresfoot';
+// 		// public function Conecta_mysql(){
+
+
+
+// // 			$con = mysqli_connect($this->host, $this->usuario, $this->senha, $this->database);
+// // 			//ajustar  o charset de comunicação entre app e bd
+// 			mysqli_set_charset($con,'utf8');
+
+
+			// //verificar conexão
+			// if(mysqli_connect_errno()){
+			// 	echo 'erro ao conectar com bd mysql'.mysqli_connect_error();
+			// }
 
 			return $con;
 
