@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 // require_once('db.class.php');
 
@@ -17,9 +17,7 @@
 // 		$status = json_decode($linha['attr'],true);
 // 		echo $status['enredo'];
 
-$random = rand(-1,1);
-echo $random;
-
+var_dump($_SESSION);
 
 
 

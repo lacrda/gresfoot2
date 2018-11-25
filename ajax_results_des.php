@@ -24,17 +24,20 @@
         echo "<th>Samba</th>";
 
 	    foreach ($todas_escolas as $k) {
-		switch ($_SESSION['stat'.$k['id']]['samba']) {
-			case 1:
-				$samba = 'Fraco';
-				break;
-			case 5:
-				$samba = "Excelente";
-				break;				
-			default:
-				$samba = "OK";
-				break;
-		}
+		
+		if ($_SESSION['stat'.$k['id']]['samba'] > 5) {
+								$samba = "Excelente";
+								$styles = 'color: green';
+							} else if ($_SESSION['stat'.$k['id']]['samba'] > 4) {
+								$samba = "Bom";
+								$styles = 'color: green';
+							} else if ($_SESSION['stat'.$k['id']]['samba'] > 3) {
+								$samba = "OK";
+								$styles = '';
+							} else {
+								$samba = 'Fraco';
+								$styles = 'color: red';
+							};	
 
 		echo	"<tr>";    
         echo    "<td>".$samba."</td>";
@@ -44,9 +47,10 @@
          
          echo "</table></div>";
 }
-
-	} else{
+} else{
+		echo "<div style='padding:5px 10px;'>";
 		echo "<h6>Escolas ainda não iniciaram os ensaios</h6>";
+		echo "</div>";
 	}
 
 

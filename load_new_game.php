@@ -33,7 +33,7 @@ foreach ($ids_escolas as $id) {
 		$enredos[$id] = mysqli_fetch_array($resultado_query, MYSQLI_ASSOC);
 
 		
-		$_SESSION['stat'.$id] = array('enredo' => $enredos[$id]['id_enredo'], 'chao' => rand(1,5), 'samba' => rand(1,5), 'bar' => rand(1,5));
+		$_SESSION['stat'.$id] = array('enredo' => $enredos[$id]['id_enredo'], 'chao' => rand(2,5), 'samba' => rand(rand(2,3),rand(4,5)), 'bar' => rand(1,5));
 		$_SESSION['stat'.$id] = json_encode($_SESSION['stat'.$id]);
 
 
@@ -42,9 +42,10 @@ foreach ($ids_escolas as $id) {
 };
 
 
-$stat_escola_user = array('enredo' => $id_enredo , 'chao' => 0, 'samba' => 0, 'bar' => 0);
+$stat_escola_user = array('enredo' => $id_enredo , 'chao' => 0, 'samba' => rand(rand(2,3),rand(4,5)), 'bar' => 0);
 
 $_SESSION['stat'.$id_escola] = json_encode($stat_escola_user);
+var_dump($_SESSION['stat'.$id_escola]);
 $stat1 = $_SESSION['stat1'];
 $stat2 = $_SESSION['stat2'];
 $stat3 = $_SESSION['stat3'];
@@ -87,7 +88,6 @@ $sql = "INSERT INTO games (user_id, bar, com, imp, cash, id_enredo, id_escola, r
 		};
 		
 
-		var_dump($_SESSION);
 
 
 	header("Location: game.php");

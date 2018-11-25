@@ -111,47 +111,47 @@ switch ($_SESSION['round']) {
 					foreach ($result as $key => $value) {
 						if (substr($key, 0, 4 ) == "stat") {
 							$k = json_decode($value, true);
+
 							$num_stat = substr($key,4,2);
 							$statz = 'stat'.$num_stat;
-							if ($k['chao']>$_SESSION[$statz]["chao"]) {
-								$iconc = '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true" style="color:green"></span>';
-							} elseif ($k['chao']<$_SESSION[$statz]["chao"]) {
-								$iconc = '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"  style="color:red"></span>';
+							if ($_SESSION['round'] == 7){
+								$iconc = '';
 							} else {
+								if ($k['chao']>$_SESSION[$statz]["chao"] && $k['chao'] > 3 && $_SESSION[$statz]["chao"] < 5 ) {
+								$iconc = '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true" style="color:green"></span>';
+								} elseif ($k['chao']<$_SESSION[$statz]["chao"] && $k['chao'] < 5 && $_SESSION[$statz]["chao"] > 3) {
+								$iconc = '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"  style="color:red"></span>';
+								} else {
 								$iconc = "";
+								}
 							}
-							switch ($k['chao']) {
-						case 1:
-							$chao = 'Fraco';
-							$stylec = 'color: red';
-							break;
+							if ($k['chao'] > 5) {
+								$chao = "Excelente";
+								$stylec = 'color: green';
+							} else if ($k['chao'] > 4) {
+								$chao = "Bom";
+								$stylec = 'color:green';
+							}else if ($k['chao'] > 3) {
+								$chao = "OK";
+								$stylec = '';
+							} else {
+								$chao = 'Fraco';
+								$stylec = 'color: red';
+							};							
 						
-						case 5:
-							$chao = "Excelente";
-							$stylec = 'color: green';
-							break;			
-						default:
-							$chao = "OK";
-							$stylec = '';
-							break;
-						};
-						
-						switch ($k['samba']) {
-						case 1:
-							$samba = 'Fraco';
-							$styles = 'color: red';
-							break;
-						
-						case 5:
-							$samba = "Excelente";
-							$styles = 'color: green';
-							break;				
-						default:
-							$samba = "OK";
-							$styles = '';
-							break;
-						}
-
+						if ($k['samba'] > 4) {
+								$samba = "Excelente";
+								$styles = 'color: green';
+							} else if ($k['samba'] > 3) {
+								$samba = "Bom";
+								$styles = 'color: green';
+							} else if ($k['samba'] > 2) {
+								$samba = "OK";
+								$styles = '';
+							} else {
+								$samba = 'Fraco';
+								$styles = 'color: red';
+							};	
 						echo "<tr>";
 							
 						echo "<td style='$stylec'>".$chao." ".$iconc."</td>";

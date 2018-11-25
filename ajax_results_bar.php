@@ -19,6 +19,13 @@
 		$todas_escolas[] = $infos;
 		};
 
+		// $id_escola_user = $_SESSION['id_escola'];
+		// $bar = $_SESSION['bar']/15;
+		// $samba = $_SESSION['com']/15;
+		// $chao = $_SESSION['des']/15;
+
+		// $_SESSION['stat'.$id_escola_user] = [ "bar"=> $bar "chao" => $chao "samba" => $com ["enredo"]=> string(3) "967" ]
+
 		echo "<table style='font-size: 9px' class='table-bordered table table-layout table-striped table-color table-condensed text-center'>";
 		echo "<thead></thead>";
         echo "<th>Barracão</th>";
@@ -47,7 +54,9 @@
 
 
 } else{
+		echo "<div style='padding:5px 10px;'>";
 		echo "<h6>Escolas ainda não iniciaram os ensaios</h6>";
+		echo "</div>";
 	}
 
 

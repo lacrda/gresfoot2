@@ -18,6 +18,10 @@ if ($_SESSION['round']==7 || $_SESSION['round']==10 || $_SESSION['round']==13 ||
 }
 
 if($_SESSION['round']==19){
+  header("Location: calcula_notas_salva_db.php");
+}
+
+if($_SESSION['round']==20){
   header("Location: results_notas.php");
 }
 
@@ -246,7 +250,7 @@ if($_SESSION['des']  > 100){
 
 		  <!-- Tab panes -->
 		  	<div class="tab-content">
-		  	<div class="col-md-6">
+		  	<div class="col-md-6" style="padding:0px 0px;">
 		  	<table style='font-size: 9px' class='table-bordered table table-layout table-striped table-color table-condensed text-center'>
 			<thead></thead>
         	<th>Escolas</th>
@@ -281,16 +285,16 @@ if($_SESSION['des']  > 100){
 
         	</table>
         	</div>
-		    <div class="tab-pane fade in active col-md-6" role="tabpanel" id="escolas" >
+		    <div class="tab-pane fade in active col-md-6" role="tabpanel" id="escolas" style="padding:0px 0px;" >
 		    
 		   	</div>
-		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_bar">
+		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_bar" style="padding:0px 0px;">
 
 		    </div>
-		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_chao">
+		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_chao" style="padding:0px 0px;">
 
 		    </div>
-		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_des">
+		    <div role="tabpanel" class="tab-pane fade in col-md-6" id="results_des" style="padding:0px 0px;">
 
 		    </div>
 		    <form  method="post" id="next-round">

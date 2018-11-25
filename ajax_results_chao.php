@@ -37,32 +37,31 @@ function isJSON($string){
         echo "<th>Chão</th>";
 
 	    foreach ($todas_escolas as $k) {
-		switch ($_SESSION['stat'.$k]['chao']) {
-			case 1:
-				$chao = 'Fraco';
-				break;
-			case 5:
-				$chao = "Excelente";
-				break;			
-			default:
-				$chao = "OK";
-				break;
-		}
-
+		if ($_SESSION['stat'.$k]['chao'] > 5) {
+			$chao = "Excelente";
+			$stylec = 'color: green';
+			} else if ($_SESSION['stat'.$k]['chao'] > 4) {
+			$chao = "Bom";
+			$stylec = '';
+			} else if ($_SESSION['stat'.$k]['chao'] > 3) {
+			$chao = "OK";
+			$stylec = '';
+			} else {
+			$chao = 'Fraco';
+			$stylec = 'color: red';
+			};							
 		echo	"<tr>";    
         echo    "<td>".$chao."</td>";
         echo 	"</tr>";
+		}
 
 		};
          
          echo "</table></div>";
-};
-
-}
-
-
- else{
+} else{
+		echo "<div style='padding:5px 10px;'>";
 		echo "<h6>Escolas ainda não iniciaram os ensaios</h6>";
+		echo "</div>";
 	}
 
 
