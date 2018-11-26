@@ -1,4 +1,4 @@
-$(document).ready( function(){
+function exercer_acoes(){
 	var bar = parseInt($('#barracao').html());
 	var com = parseInt($('#com').html());
 	var des = parseInt($('#des').html());
