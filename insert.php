@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// require_once('db.class.php');
+require_once('db.class.php');
 
-// 		$objDb = new db();
-// 		$link = $objDb->conecta_mysql();
+		$objDb = new db();
+		$link = $objDb->conecta_mysql();
 
 
-// 		$sql = "SELECT * from products where id = 2";
+		$sql = "SELECT * from products ";
 
 // 		$resultado = mysqli_query($link, $sql);
 
@@ -17,7 +17,6 @@ session_start();
 // 		$status = json_decode($linha['attr'],true);
 // 		echo $status['enredo'];
 
-var_dump($_SESSION);
 
 
 

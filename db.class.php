@@ -3,16 +3,30 @@
 	class db{
 
 
-		$url = parse_url(getenv("'mysql://b0fc924a809363:8cf3ef12@us-cdbr-iron-east-01.cleardb.net/heroku_e3047586806ab25?reconnect=true"));
+		$url = parse_url(getenv("mysql://b0fc924a809363:8cf3ef12@us-cdbr-iron-east-01.cleardb.net/heroku_e3047586806ab25?reconnect=true"));
 
 		$server = $url["host"];
 		$username = $url["user"];
 		$password = $url["pass"];
 		$db = substr($url["path"], 1);
 
+		echo $server."</br>";
+
+		echo $db;
+
 		public function conecta_mysql(){
 
-		$conn = new mysqli($server, $username, $password, $db);
+		$conn = mysqli_connect($server, $username, $password, $db);
+
+		return $conn;
+
+		//verificar conexão
+		if(mysqli_connect_errno()){
+			echo 'erro ao conectar com bd mysql'.mysqli_connect_error();
+		}
+	}
+
+}
 
 
 		
@@ -38,19 +52,13 @@
 // 			mysqli_set_charset($con,'utf8');
 
 
-			// //verificar conexão
-			// if(mysqli_connect_errno()){
-			// 	echo 'erro ao conectar com bd mysql'.mysqli_connect_error();
-			// }
-
-			return $con;
 
 
 
-		}
+	// 	}
 
 
-	}
+	// }
 
 
 
