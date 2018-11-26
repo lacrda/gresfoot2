@@ -15,8 +15,10 @@ if($_SESSION['des']  > 100){
 
 if ($_SESSION['round'] != 1){
   header("Location: game.php");
-};
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
