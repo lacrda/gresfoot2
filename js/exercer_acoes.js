@@ -1,4 +1,4 @@
-window.onload = function(){
+$(document).ready( function(){
 	var bar = parseInt($('#barracao').html());
 	var com = parseInt($('#com').html());
 	var des = parseInt($('#des').html());
@@ -38,6 +38,6 @@ window.onload = function(){
     	$("#next-round").attr({'action' : 'btwn_rounds.php'});
 
     });
-  	};
+  	});
 
 

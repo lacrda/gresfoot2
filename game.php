@@ -49,50 +49,50 @@ if($_SESSION['des']  > 100){
     <!-- Bootstrap -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="estilo.css" rel="stylesheet">
+    <script src="https://glacial-tundra-34184.herokuapp.com/js/exercer_acoes.js"></script>
     <!-- <script src="js/jquery-2.2.4.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
     <script type="text/javascript">
-    	$(document).ready( function(){
-  				$.ajax({
-							url: 'ajax_enredos.php',
-							success: function(data) {
-								$('#escolas').html(data);
-							}
-						});
-  				$.ajax({
-							url: 'ajax_results_bar.php',
-							success: function(data) {
-								$('#results_bar').html(data);
-							}
-						});
-  				$.ajax({
-							url: 'ajax_results_chao.php',
-							success: function(data) {
-								$('#results_chao').html(data);
-							}
-						});
-  				$.ajax({
-							url: 'ajax_results_des.php',
-							success: function(data) {
-								$('#results_des').html(data);
-							}
-						});
-  				$.ajax({
-							url: 'load_actions.php',
-							success: function(data) {
-								$('#action').html(data);
-							}
-						});
-					
-  						
-  		});
+      $(document).ready( function(){
+          $.ajax({
+              url: 'ajax_enredos.php',
+              success: function(data) {
+                $('#escolas').html(data);
+              }
+            });
+          $.ajax({
+              url: 'ajax_results_bar.php',
+              success: function(data) {
+                $('#results_bar').html(data);
+              }
+            });
+          $.ajax({
+              url: 'ajax_results_chao.php',
+              success: function(data) {
+                $('#results_chao').html(data);
+              }
+            });
+          $.ajax({
+              url: 'ajax_results_des.php',
+              success: function(data) {
+                $('#results_des').html(data);
+              }
+            });
+          $.ajax({
+              url: 'load_actions.php',
+              success: function(data) {
+                $('#action').html(data);
+              }
+            });
+          
+              
+      });
 
     </script>
-    <script src="https://glacial-tundra-34184.herokuapp.com/js/exercer_acoes.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
