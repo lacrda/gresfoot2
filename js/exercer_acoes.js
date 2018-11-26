@@ -4,6 +4,7 @@ $(document).ready( function(){
 	var des = parseInt($('#des').html());
 	console.log(bar);
     $('.teste3').click(function(){
+        console.log('clicou');
     	$('#barracao').html(bar);
     	var eff_bar = parseInt($(this).attr('data-bar'));
     	var eff_com = parseInt($(this).attr('data-com'));
@@ -36,6 +37,7 @@ $(document).ready( function(){
     	$("input[name='com']").attr({'value':com+eff_com});
     	$("input[name='des']").attr({'value':des+eff_des});
     	$("#next-round").attr({'action' : 'btwn_rounds.php'});
+        console.log('script finalizado');
 
     });
   	});
