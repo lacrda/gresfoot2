@@ -38,18 +38,19 @@ if ($_SESSION['round'] != 1){
               url: 'load_actions.php',
               success: function(data) {
                 $('#action').html(data);
-                console.log('enredos carregados');
+                action_enredos();
               }
             });
        });
-      $(window).on("load", function() {
-        console.log('window loaded js');
+      function action_enredos() {
+        console.log('função executada');
         $(".enredos").click(function(){
-        var id_enredo = ($(this).attr('data-enredo'));
+           console.log('botão clicado');
+         var id_enredo = ($(this).attr('data-enredo'));
         $("#next-round").attr({'action' : 'load_new_game.php'});
         $("input[name='enredo']").attr({'value': id_enredo});
           });       
-      });
+      };
 
 
     </script>
