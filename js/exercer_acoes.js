@@ -40,6 +40,6 @@ function exercer_acoes(){
         console.log('script finalizado');
 
     });
-  	});
+  	};
 
 
