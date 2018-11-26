@@ -43,22 +43,21 @@ if ($_SESSION['round'] != 1){
 
     <script type="text/javascript">
     	$(document).ready( function(){
-  				$.ajax({
-							url: 'load_actions.php',
-							success: function(data) {
-								$('#action').html(data);
-							};
-						});
-          }); 
+          $.ajax({
+              url: 'load_actions.php',
+              success: function(data) {
+                $('#action').html(data);
+              }
+            });
+       });
+      window.onload = function(){
+      $(".enredos").click(function(){
+        var id_enredo = ($(this).attr('data-enredo'));
+       $("#next-round").attr({'action' : 'load_new_game.php'});
+       $("input[name='enredo']").attr({'value': id_enredo});
+          });       
+      };
 
-      $(document).onload( function(){
-          $(".enredos").click(function(){
-          var id_enredo = ($(this).attr('data-enredo'));
-          $("#next-round").attr({'action' : 'load_new_game.php'});
-          $("input[name='enredo']").attr({'value': id_enredo});
-
-          });				
-      });
 
     </script>
 
