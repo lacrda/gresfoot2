@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+	echo "teste push heroku";
+
 require_once('db.class.php');
 
 		$objDb = new db();
