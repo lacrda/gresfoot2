@@ -18,6 +18,4 @@ require_once('db.class.php');
 // 		echo $status['enredo'];
 
 
-
-
 ?>
