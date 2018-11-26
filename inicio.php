@@ -38,7 +38,7 @@ if ($_SESSION['round'] != 1){
               url: 'load_actions.php',
               success: function(data) {
                 $('#action').html(data);
-              };
+              }
             });
        });
       $(window).on("load", function() {
