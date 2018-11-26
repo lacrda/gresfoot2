@@ -38,11 +38,12 @@ if ($_SESSION['round'] != 1){
               url: 'load_actions.php',
               success: function(data) {
                 $('#action').html(data);
+                console.log('enredos carregados');
               }
             });
        });
       $(window).on("load", function() {
-        console.log('window loaded enredo js');
+        console.log('window loaded js');
         $(".enredos").click(function(){
         var id_enredo = ($(this).attr('data-enredo'));
         $("#next-round").attr({'action' : 'load_new_game.php'});
