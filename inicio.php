@@ -50,11 +50,12 @@ if ($_SESSION['round'] != 1){
               }
             });
        });
-      window.onload = function(){
-      $(".enredos").click(function(){
+      $(window).on("load", function() {
+        console.log('window loaded enredo js');
+        $(".enredos").click(function(){
         var id_enredo = ($(this).attr('data-enredo'));
-       $("#next-round").attr({'action' : 'load_new_game.php'});
-       $("input[name='enredo']").attr({'value': id_enredo});
+        $("#next-round").attr({'action' : 'load_new_game.php'});
+        $("input[name='enredo']").attr({'value': id_enredo});
           });       
       };
 

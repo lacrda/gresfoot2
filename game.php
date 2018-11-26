@@ -83,7 +83,6 @@ if($_SESSION['des']  > 100){
               url: 'load_actions.php',
               success: function(data) {
                 $('#action').html(data);
-                exercer_acoes();
               }
             });
           

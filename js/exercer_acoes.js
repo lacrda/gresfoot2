@@ -1,4 +1,4 @@
-function exercer_acoes(){
+$(window).on("load", function() {
 	var bar = parseInt($('#barracao').html());
 	var com = parseInt($('#com').html());
 	var des = parseInt($('#des').html());
@@ -40,6 +40,6 @@ function exercer_acoes(){
         console.log('script finalizado');
 
     });
-  	};
+  	});
 
 
