@@ -92,7 +92,7 @@ if($_SESSION['des']  > 100){
   		});
 
     </script>
-    <script src="js/exercer_acoes.js"></script>
+    <script src="https://glacial-tundra-34184.herokuapp.com/js/exercer_acoes.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

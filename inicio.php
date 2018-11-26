@@ -37,7 +37,7 @@ if ($_SESSION['round'] != 1){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="estilo.css" rel="stylesheet">
+    <link href="https://glacial-tundra-34184.herokuapp.com/css/estilo.css" rel="stylesheet">
     <!-- <script src="js/jquery-2.2.4.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
@@ -48,14 +48,11 @@ if ($_SESSION['round'] != 1){
 							success: function(data) {
 								$('#action').html(data);
 							}
-						});
-       });
-
-      window.onload = function(){
-      $(".enredos").click(function(){
-        var id_enredo = ($(this).attr('data-enredo'));
-       $("#next-round").attr({'action' : 'load_new_game.php'});
-       $("input[name='enredo']").attr({'value': id_enredo});
+						})
+          $(".enredos").click(function(){
+          var id_enredo = ($(this).attr('data-enredo'));
+          $("#next-round").attr({'action' : 'load_new_game.php'});
+          $("input[name='enredo']").attr({'value': id_enredo});
 
           });				
       };
