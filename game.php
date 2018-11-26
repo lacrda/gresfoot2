@@ -52,7 +52,6 @@ if($_SESSION['des']  > 100){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="estilo.css" rel="stylesheet">
-    <script src="https://glacial-tundra-34184.herokuapp.com/js/exercer_acoes.js"></script>
     <!-- <script src="js/jquery-2.2.4.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
@@ -93,6 +92,7 @@ if($_SESSION['des']  > 100){
       });
 
     </script>
+    <script src="https://glacial-tundra-34184.herokuapp.com/js/exercer_acoes.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
