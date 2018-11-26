@@ -55,7 +55,7 @@ if ($_SESSION['round'] != 1){
           $("input[name='enredo']").attr({'value': id_enredo});
 
           });				
-      };
+      });
 
     </script>
 
