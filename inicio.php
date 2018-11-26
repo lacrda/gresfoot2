@@ -2,10 +2,7 @@
 session_start();
 	if (!isset($_SESSION['usuario'])) {
 		header('Location: index.php?erro=1');
-	}
-
-
-	
+	};	
 if($_SESSION['bar'] > 100){
 	$_SESSION['bar'] = 100;
 };
@@ -18,9 +15,7 @@ if($_SESSION['des']  > 100){
 
 if ($_SESSION['round'] != 1){
   header("Location: game.php");
-}
-
-
+};
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,23 +26,17 @@ if ($_SESSION['round'] != 1){
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>gresfoot</title>
     <link rel="icon" type="image/png" sizes="96x96" href="img/logo/favicon-32x32.png">
-
-    <!-- Bootstrap -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://glacial-tundra-34184.herokuapp.com/css/estilo.css" rel="stylesheet">
-    <!-- <script src="js/jquery-2.2.4.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-
+    <link href="https://glacial-tundra-34184.herokuapp.com/estilo.css" rel="stylesheet">
     <script type="text/javascript">
     	$(document).ready( function(){
           $.ajax({
               url: 'load_actions.php',
               success: function(data) {
                 $('#action').html(data);
-              }
+              };
             });
        });
       $(window).on("load", function() {
@@ -57,7 +46,7 @@ if ($_SESSION['round'] != 1){
         $("#next-round").attr({'action' : 'load_new_game.php'});
         $("input[name='enredo']").attr({'value': id_enredo});
           });       
-      };
+      });
 
 
     </script>
